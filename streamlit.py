@@ -216,3 +216,7 @@ if page == pages[5] :
 # PAGE 06 # Edition de la page "Conclusion et Perspective"
 if page == pages[6] : 
   st.write()
+
+# PAGE 07 # Edition de la page "test"
+if page == pages[7] : 
+  st.write()
