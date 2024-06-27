@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit.components.v1 as components
 import numpy as np
@@ -218,5 +218,5 @@ if page == pages[6] :
   st.write()
 
 # PAGE 07 # Edition de la page "test"
-if page == pages[7] : 
-  st.write()
+# if page == pages[7] : 
+#   st.write()
