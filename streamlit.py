@@ -360,7 +360,7 @@ if page == pages[3] :
 #  selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns, default=cat_columns)
 
 # Sélection des variables à afficher avec une liste déroulante, 'job' est sélectionné par défaut
-  # selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns, default=['job'])
+  selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns)
 
 
 # Calcul du nombre de lignes et de colonnes nécessaires pour les sous-graphiques
