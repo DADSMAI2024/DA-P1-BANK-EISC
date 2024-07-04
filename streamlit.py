@@ -340,7 +340,7 @@ if page == pages[2] :
 
 # PAGE 02 # Edition de la page "Liste déroulante"
 if page == pages[3] : 
-  st.title("test list déroulante")
+  st.title("Préparation des données")
 
 #   col1, col2, col3 = st.columns([1, 1, 1])  
 
