@@ -343,89 +343,26 @@ if page == pages[2] :
 
 # PAGE 02 # Edition de la page "Liste déroulante"
 if page == pages[3] : 
-  st.title("Préparation des données")
+    st.title("Préparation des données")
 
-#   col1, col2, col3 = st.columns([1, 1, 1])  
-
-#   button1 = col1.button("Volumétrie des commandes")
-#   # button2 = col2.button("Analyse des revenus")
-#   # button3 = col3.button("Analyse de la variable cible")
-
-# if button1:
-
-# Catégories à afficher
-#   cat_columns = ['job', 'marital', 'education', 'default', 'housing', 'loan', 'contact', 'month', 'poutcome']
-
-# #palette de couleur
-#   color_pal12 = ['#92A8D1', '#034F84', '#F7CAC9', '#F7786B', '#DEEAEE', '#B1CBBB', '#EEA29A','#F0DA86', '#53B8B2', '#BEB9DB', '#FDCCE5', '#BD7EBE']
-
-# # Sélection des variables à afficher avec une liste déroulante
-#  selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns, default=cat_columns)
-
-# # Sélection des variables à afficher avec une liste déroulante, 'job' est sélectionné par défaut
-#   # selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns)
+    image_url = "https://www.lebigdata.fr/wp-content/uploads/2016/08/data-mining-1.jpg.webp"
+    # Afficher l'image
+    st.image(image_url)
 
 
-# # Calcul du nombre de lignes et de colonnes nécessaires pour les sous-graphiques
-#   num_cols = 3
-#   num_rows = (len(selected_columns) + num_cols - 1) // num_cols  # arrondir au nombre entier supérieur
+    st.markdown("""
+        1. **Discrétiser** la variable **'age'** par tranches d'âge pour **atténuer le rôle des valeurs extrêmes**.
+        2. **Remplacer la modalité 'unknown'** de la variable **'education'** par la modalité la plus **fréquente**.
+        3. **Encoder cycliquement** les variables catégorielles cycliques **('month', 'day')**
+        4. **Séparer le jeu de données en deux DataFrames** : variable cible et variables explicatives.
+        5. **Séparer le jeu de données en un jeu d'entraînement** (X_train,y_train) et un jeu de test (X_test, y_test) de sorte que la partie de test contient **25%** du jeu de données initial.
+        6. **Standardiser** les variables numériques **('balance', 'duration', 'campaign', 'previous')** à l'aide de RobustScaler en estimant les paramètres sur le jeu d'entraînement et en l'appliquant sur le jeu d'entraînement et de test.
+        7. **Encoder** les modalités de la variable cible **‘deposit’** à l'aide d'un **LabelEncoder** en estimant l'encodage sur le jeu d'entraînement et en l'appliquant sur le jeu d'entraînement et de test.
+        8. **Encoder** les modalités des variables explicatives **('default', 'housing', 'loan')** à l'aide d'un **LabelEncoder** en estimant l'encodage sur le jeu d'entraînement et en l'appliquant sur le jeu d'entraînement et de test.
+        9. **Encoder** les modalités des variables explicatives **('job', 'marital', 'contact', 'poutcome')** à l'aide d'un **OneHotEncoder** en estimant l'encodage sur le jeu d'entraînement et en l'appliquant sur le jeu d'entraînement et de test.
+        10. **Encoder** les modalités des variables explicatives **('age', 'education')** à l'aide d'un **OrdinalEncoder** en estimant l'encodage sur le jeu d'entraînement et en l'appliquant sur le jeu d'entraînement et de test.""")
+    st.write("")
+    st.markdown("""Nous avons également testé le prétraitement des données en **pipeline**""")
+            # Avant de pouvoir appliquer les techniques d'apprentissage automatique, nous devons préparer l'ensemble des données. En sachant que nous n'avons pas de valeurs manquantes ou d'anomalies à traiter, nous allons :
 
-# # Création des sous-graphiques
-#   fig = make_subplots(rows=num_rows, cols=num_cols, subplot_titles=selected_columns)
-
-# # Création des sous-graphiques
-# #  fig = make_subplots(rows=3, cols=3, subplot_titles=selected_columns)
-
-#   # Création des sous-graphiques
-#   if len(selected_columns) == 1:
-#     fig = make_subplots(rows=2, cols=1, subplot_titles=selected_columns)
-#   else:
-#     fig = make_subplots(rows=num_rows, cols=num_cols, subplot_titles=selected_columns)
-
-#   counter = 0
-#   for cat_column in selected_columns:
-#     value_counts = df[cat_column].value_counts()
-#     x_pos = np.arange(0, len(value_counts))
-
-
-#     # Mélanger les couleurs de la palette de manière aléatoire
-#     random_colors = color_pal12.copy()
-#     random.shuffle(random_colors)
-#     # Appliquer les couleurs mélangées aux barres de la catégorie
-#     colors = [random_colors[i % len(random_colors)] for i in range(len(value_counts))]
-
-#     #SANS RANDOM
-#     # Appliquer les couleurs de la palette aux barres de la catégorie
-#     #colors = [color_pal12[i % len(color_pal12)] for i in range(len(value_counts))]
-
-#     trace_x = counter // num_cols + 1
-#     trace_y = counter % num_cols + 1
-
-#     # Ajout de la barre
-#     fig.add_trace(go.Bar(
-#         x=x_pos,
-#         y=value_counts.values,
-#         text=value_counts.values,
-#         textposition='auto',
-#         hoverinfo='text+x',
-#         name=cat_column,
-#         marker_color=colors,
-#         opacity=0.6,
-#         marker_line_width=2,
-#         showlegend=False,), row=trace_x, col=trace_y)
-
-
-#   # Mise en forme de l'axe x
-#     fig.update_xaxes(tickvals=x_pos, ticktext=value_counts.index, row=trace_x, col=trace_y)
-        
-#     # Rotation des étiquettes de l'axe x
-#     fig.update_xaxes(tickangle=45, row=trace_x, col=trace_y)
-#     counter += 1
-
-# # Mise à jour de la mise en page du graphique
-#     fig.update_layout(height=800,width=1000,title_text="Distribution des modalités des variables catégorielles",)
-
-
-# # Affichage du graphique
-#   st.plotly_chart(fig)
 
