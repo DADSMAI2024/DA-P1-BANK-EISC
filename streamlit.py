@@ -324,7 +324,10 @@ if page == pages[2] :
 
     # Affichage du graphique
     st.plotly_chart(fig)
-
+    st.subheader("Constat") 
+    st.markdown("Dans ce graphique corrélation, on note un lien entre les variables 'pdays' et 'previous' ; ce qui semble cohérent puisque 'pdays' représente le nombre de jours depuis le dernier contact client et 'previous' représente le nombre de contacts précédant cette campagne.")
+    st.markdown("La variable **duration** - _durée du contact client durant la campagne_ - semble influencer la variable cible deposit. Nous étudierons plus spécifiquement cette variable exprimée en secondes, et présent des valeurs extrêmes.")
+    st.markdown("Dans une très moindre mesure, les variables 'pdays', 'previous' et 'balance' semble légèrement influencer la variable cible deposit.")
 
 
 
