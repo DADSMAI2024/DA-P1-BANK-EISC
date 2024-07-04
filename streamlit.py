@@ -357,10 +357,10 @@ if page == pages[3] :
   color_pal12 = ['#92A8D1', '#034F84', '#F7CAC9', '#F7786B', '#DEEAEE', '#B1CBBB', '#EEA29A','#F0DA86', '#53B8B2', '#BEB9DB', '#FDCCE5', '#BD7EBE']
 
 # Sélection des variables à afficher avec une liste déroulante
-#  selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns, default=cat_columns)
+ selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns, default=cat_columns)
 
 # Sélection des variables à afficher avec une liste déroulante, 'job' est sélectionné par défaut
-  selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns)
+  # selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns)
 
 
 # Calcul du nombre de lignes et de colonnes nécessaires pour les sous-graphiques
