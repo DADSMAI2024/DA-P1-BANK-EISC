@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 import pandas as pd
-import matplotlib.pyplot as plt
+import matplotlib as plt
 import seaborn as sns
 import streamlit.components.v1 as components
 import numpy as np
@@ -32,8 +32,10 @@ b = generate_random_value(20)
 df= pd.read_csv("bank.csv")
 st.sidebar.title("Sommaire")
 
+
+
 # PAGE 0 # Sommaire"
-pages=["Le projet","Le jeu de donnée", "Visualisations", "Préparation des données", "Modélisation", "Machine Learning", "Conclusion et Perspective"]
+pages=["Le projet","Le jeu de données", "Visualisations", "Préparation des données", "Modélisation", "Machine Learning", "Conclusion et Perspective"]
 page=st.sidebar.radio("Aller vers", pages)
 with st.sidebar:
     st.title("Auteurs")
@@ -64,23 +66,24 @@ if page == pages[1] :
   st.markdown("Le jeu de données 'bank.csv' est basé sur le jeu de données UCI 'Bank Marketing' dont on peut lire la description ici : http://archive.ics.uci.edu/ml/datasets/Bank+Marketing). Créateurs: S. Moro, P. Rita, P. Cortez.")
   
   st.subheader("Les différentes variables")
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _âge_</span> : _(num)_", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _job_</span> : _(cat)_ type d'emploi (admin., blue-collar, entrepreneur, housemaid, management, retired, self-employed, services, student, technician, unemployed, unknown)", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _marital_</span> : _(cat)_ état matrimonial (divorced, married, single)", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _education_</span> : _(cat)_ niveau d'étude (primary, secondary , tertiary, unknown)", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _default_</span> : _(cat)_ a un défaut de crédit ? (yes, no)", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _housing_</span> : _(cat)_ dispose d'un prêt au logement ? (yes, no)", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _loan_</span> : _(cat)_ a un prêt personnel ?  (yes, no)", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _balance_</span> : _(num)_ solde du compte en banque", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _contact_</span> : _(cat)_ type de communication du contact (cellular, telephone, unknown)", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _month_</span> : _(cat)_ dernier mois de contact (jan, feb, ... dec)", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _day_</span> : _(num)_ dernier jour de contact", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _duration_</span> : _(num)_ durée du dernier contact, en secondes", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _campaign_</span> : _(num)_ nombre de contacts effectués au cours de cette campagne et pour ce client", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _pdays_</span> : _num)_ nombre de jours écoulés depuis le dernier contact du client lors d'une campagne précédente (-1 signifie que le client n'a pas été contacté précédemment)", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _previous_</span> : _(num)_ nombre de contacts effectués avant cette campagne et pour ce client", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _poutcome_</span> : _(cat)_ résultat de la précédente campagne marketing (failure, other, success, unknown)", unsafe_allow_html=True)
-  st.write("<span style='color:white;'>.</span> <span style='color:red;'> _deposit_</span> : _(cat/target)_ le client a, oui ou non, souscrit au dépôt à terme (yes, no)", unsafe_allow_html=True)
+  
+  st.write("**age**: _(num)_")
+  st.write("**job**: _(cat)_ type d'emploi (admin., blue-collar, entrepreneur, housemaid, management, retired, self-employed, services, student, technician, unemployed, unknown)")
+  st.write("**marital**: _(cat)_ état matrimonial (divorced, married, single)")
+  st.write("**education**: _(cat)_ niveau d'étude (primary, secondary , tertiary, unknown)")
+  st.write("**default**: _(cat)_ a un défaut de crédit ? (yes, no)")
+  st.write("**housing**: _(cat)_ dispose d'un prêt au logement ? (yes, no)")
+  st.write("**loan**: _(cat)_ a un prêt personnel ?  (yes, no)")
+  st.write("**balance**: _(num)_ solde du compte en banque")
+  st.write("**contact**: _(cat)_ type de communication du contact (cellular, telephone, unknown)")
+  st.write("**month**: _(cat)_ dernier mois de contact (jan, feb, ... dec)")
+  st.write("**day**: _(num)_ dernier jour de contact")
+  st.write("**duration**: _(num)_ durée du dernier contact, en secondes")
+  st.write("**campaign**: _(num)_ nombre de contacts effectués au cours de cette campagne et pour ce client")
+  st.write("**pdays**: _(num)_ nombre de jours écoulés depuis le dernier contact du client lors d'une campagne précédente (-1 signifie que le client n'a pas été contacté précédemment)")
+  st.write("**previous**: _(num)_ nombre de contacts effectués avant cette campagne et pour ce client")
+  st.write("**poutcome**: _(cat)_ résultat de la précédente campagne marketing (failure, other, success, unknown)")
+  st.write("**deposit**: _(cat/target)_ le client a, oui ou non, souscrit au dépôt à terme (yes, no)")
 
   dataset = st.checkbox("Afficher un extract du data set")
   if dataset:
@@ -90,19 +93,254 @@ if page == pages[1] :
 
   st.subheader("Résumé des statistiques descriptives des variables quantitatives")
   st.write(df.describe())
-  st.write("Nous pouvons noter que:")
-  st.write("_age_ : 50% des valeurs sont entre 32 et 49 ans. Beaucoup de valeurs extrêmes : max 95.")
-  st.write("_balance_ : 50% des valeurs sont entre 122 et 1708. Présence de valeurs négatives et de valeurs extrêmes : min -6 847, max 81 204.")
-  st.write("_duration_ : 50% des valeurs sont entre 138 sec (2min) et 496 (8min). Présence de valeurs extrêmes : max 3 881.")
-  st.write("_campaign_ :  50% des valeurs sont entre 1 et 3 contacts.Présence de valeurs extrêmes : max 63.")
-  st.write("_pdays_ : 50% des valeurs sont entre - 1 et 20. La médiane est à -1 ce qui signifie que la moitié des clients n'ont jamais été contacté avant cette campagne. Présence de valeurs extrêmes : max 854.")
-  st.write("_previous_ : 50% des valeurs sont entre 0 et 1. Présence de valeurs extrêmes : max 58.")
+  st.subheader("Constat") 
+  st.write("**age** : 50% des valeurs sont entre 32 et 49 ans. Beaucoup de valeurs extrêmes : max 95.")
+  st.write("**balance** : 50% des valeurs sont entre 122 et 1708. Présence de valeurs négatives et de valeurs extrêmes : min -6 847, max 81 204.")
+  st.write("**duration** : 50% des valeurs sont entre 138 sec (2min) et 496 (8min). Présence de valeurs extrêmes : max 3 881.")
+  st.write("**campaign** :  50% des valeurs sont entre 1 et 3 contacts.Présence de valeurs extrêmes : max 63.")
+  st.write("**pdays** : 50% des valeurs sont entre - 1 et 20. La médiane est à -1 ce qui signifie que la moitié des clients n'ont jamais été contacté avant cette campagne. Présence de valeurs extrêmes : max 854.")
+  st.write("**previous** : 50% des valeurs sont entre 0 et 1. Présence de valeurs extrêmes : max 58.")
 
   st.write("")
 
-# PAGE 02 # Edition de la page "Quelques Visualisations"
+# PAGE 02 # Edition de la page "Visualisations"
 if page == pages[2] : 
   st.title("Visualisations")
+
+  col1, col2, col3,col4 = st.columns([1, 1, 1, 1])  
+
+  button1 = col1.button("La variable cible : deposit")
+  button2 = col2.button("Les variables catégorielles")
+  button3 = col3.button("Les variables numériques")
+  button4 = col4.button("Var. explicatives VS cible")
+
+  if button1:
+
+    count_deposit = df['deposit'].value_counts()
+    color_sequence = ['#5242EA', '#FACA5E']
+
+# pie chart
+    pie_chart = go.Pie(
+    labels=count_deposit.index,
+    values=count_deposit.values,
+    marker=dict(colors=color_sequence),
+    pull=[0.05,0]
+    )
+
+# bar chart
+    bar_chart = go.Bar(
+    x=count_deposit.index,
+    y=count_deposit.values,
+    text=count_deposit.values,
+    textposition='auto',
+    marker=dict(color=color_sequence),
+    showlegend=False
+)
+
+# figure avec deux sous-plots
+    fig = make_subplots(
+    rows=1, cols=2,
+    specs=[[{"type": "domain"}, {"type": "xy"}]],
+    subplot_titles=("Distribution ", "Nombre de dépôts")
+    )
+
+# Ajouter pie chart et bar chart à la figure
+    fig.add_trace(pie_chart, row=1, col=1)
+    fig.add_trace(bar_chart, row=1, col=2)
+
+# Mise à jour
+    fig.update_layout(
+    title_text="<b>Analyse de la variable cible : dépôt à terme ou non",
+    legend_title= "<b>Dépôt"
+    )
+
+# Affichage
+    st.plotly_chart(fig)
+
+    st.subheader("Constat") 
+    st.markdown("La répartition entre les clients qui ont souscrit à un dépôt à terme et ceux qui ne l'ont pas fait est relativement équilibrée, avec une différence de 5,2 %.")
+    st.markdown("Toutefois, il y a légèrement plus de personnes qui n'ont pas contracté de dépôt à terme (52,6 %) par rapport à celles qui l'ont fait (47,4 %).")
+  
+
+
+##Variables catégorielles
+  if button2:
+    # Catégories à afficher
+    cat_columns = ['job', 'marital', 'education', 'default', 'housing', 'loan', 'contact', 'month', 'poutcome']
+
+    # Couleurs à appliquer
+    colors = ['#5242EA', '#FACA5E', '#56CEB2', '#28DCE0']
+
+    # Création des sous-graphiques
+    fig = make_subplots(rows=3, cols=3, subplot_titles=cat_columns)
+
+    counter = 0
+    for cat_column in cat_columns:
+        value_counts = df[cat_column].value_counts()
+        x_pos = np.arange(0, len(value_counts))
+
+        trace_x = counter // 3 + 1
+        trace_y = counter % 3 + 1
+
+        # Choisir la couleur cycliquement
+        color = colors[counter % len(colors)]
+
+        # Ajout de la barre
+        fig.add_trace(
+            go.Bar(
+                x=x_pos,
+                y=value_counts.values,
+                text=value_counts.values,
+                textposition='auto',
+                hoverinfo='text+x',
+                name=cat_column,
+                marker_color=color,
+                opacity=0.8,
+                marker_line_color=color,
+                marker_line_width=1,
+                showlegend=False,
+            ),
+            row=trace_x,
+            col=trace_y
+        )
+
+        # Mise en forme de l'axe x
+        fig.update_xaxes(
+            tickvals=x_pos,
+            ticktext=value_counts.index,
+
+            row=trace_x,
+            col=trace_y
+        )
+
+        # Rotation des étiquettes de l'axe x
+        fig.update_xaxes(tickangle=45, row=trace_x, col=trace_y)
+
+        counter += 1
+
+    # Mise à jour de la mise en page du graphique
+    fig.update_layout(
+        height=800,
+        width=1000,
+        title_text="<b>Distribution des modalités des variables catégorielles",
+    )
+
+    # Affichage du graphique
+    st.plotly_chart(fig)
+
+    st.subheader("Constat") 
+    st.markdown("""
+        1. **Profession (job)** : Les professions les plus fréquentes sont “management”,“blue-collar” (ouvriers) et “technician”.
+        2. **État civil (marital)** : La majorité des clients sont “married” (mariés).
+        3. **Niveau d'études (education)** : La catégorie "secondary" (enseignement secondaire) est la plus fréquente parmi ceux qui ont souscrit au produit dépôt à terme.
+        4. **Défaut de paiement (default)** : Très faible part des clients en défaut de paiement.
+        5. **Crédit immobilier (housing)** : plutôt équilibré entre les clients ayant un crédit immobilier ou non.
+        6. **Prêt personnel (loan)** : Très faible part de clients avec un prêt personnel.
+        7. **Type de contact (contact)** : Le contact par mobile est le plus fréquent.
+        8. **Mois de contact (month)** : Les mois de mai, juin, juillet, et août sont les mois avec le plus de contacts pour cette campagne.      
+        8. **Résultat précédente campagne (poutcome)** : Une bonne partie des résultats de la précédente campagne est inconnue.
+        """)
+
+
+##Variables numériques
+  if button3:
+    # Variables numériques à afficher
+    num_columns = ['balance', 'day', 'duration', 'campaign', 'pdays', 'previous']
+
+    # Couleurs à appliquer
+    colors = ['#5242EA', '#FACA5E', '#56CEB2', '#28DCE0']
+
+    # Création des sous-graphiques
+    fig = make_subplots(rows=2, cols=3, subplot_titles=num_columns)
+
+    # Position du subplot
+    row = 1
+    col = 1
+
+    # Création des histogrammes pour chaque variable numérique
+    for i, num_column in enumerate(num_columns):
+        color = colors[i % len(colors)]  # Choisir la couleur cycliquement
+        fig.add_trace(
+            go.Histogram(
+                x=df[num_column],
+                marker_color=color,  # Couleur des barres
+                opacity=0.6,
+                marker_line_width=0.5,
+                showlegend=False,  # Supprimer les étiquettes de légende
+                name=num_column
+            ),
+            row=row,
+            col=col
+        )
+
+        fig.update_xaxes(title_text=num_column, row=row, col=col)
+        fig.update_yaxes(title_text='Count', row=row, col=col)
+
+        col += 1
+        if col > 3:
+            row += 1
+            col = 1
+
+          
+
+    # Mise à jour de la mise en page du graphique
+    fig.update_layout(
+        height=800,
+        width=1000,
+        title_text="<b>Histogrammes des variables numériques"
+    )
+
+    # Affichage du graphique
+    st.plotly_chart(fig)
+
+    st.subheader("Constat") 
+    st.markdown("""
+        1. **Solde moyen du compte bancaire (balance)** : Forte concentration des données autour de 0. Présence de valeurs négatives et de valeurs extrêmes..
+        2. **Jour de contact (days)** : la campagne de télémarketing semble avoir lieu tous les jours du mois, avec une baisse notable en moyenne le 10 du mois et entre le 22 et le 27 du mois. Il est à noter que cette variable est lissée sur tous les mois de plusieurs années, avec l'absence de l'information année, ni celle du jour de la semaine, ne nous permettant pas de déduire de grosses tendances à partir de cette variable.
+        3. **Durée du contact (duration)** : exprimée en secondes, présence de valeurs extrêmes.
+        4. **Nombre de contacts de la campagne(campaign)** : présence de valeurs extrêmes.
+        5. **Nombre de jours depuis le contact précédent (pdays)** : forte présence de valeurs négatives, distribution asymétrique, et nombreuses valeurs extrêmes.
+        6. **Nombre de contacts précédents (previous)** : Très forte concentration autour de 0 qui signifie pas de contacts précédemment et présence de valeurs extrêmes.
+        """)
+
+    # Headmap
+    # Convertir la variable cible 'deposit' en numérique
+    df['deposit_num'] = df['deposit'].apply(lambda x: 1 if x == 'yes' else 0)
+
+    # Sélection des variables numériques
+    var_num_cible = ['age', 'balance', 'duration', 'campaign', 'pdays', 'previous','deposit_num']
+
+    # Calcul de la matrice de corrélation
+    corr_matrix_cible = df[var_num_cible].corr()
+
+    # Création du heatmap avec Plotly
+    fig = px.imshow(corr_matrix_cible, text_auto=True, aspect="auto", color_continuous_scale='Plasma')
+
+    # Mise à jour du layout
+    fig.update_layout(title="<b>Heatmap des Variables Numériques avec la variable cible deposit",
+                      xaxis_title="Variables",
+                      yaxis_title="Variables")
+
+
+    # Affichage du graphique
+    st.plotly_chart(fig)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# PAGE 02 # Edition de la page "Liste déroulante"
+if page == pages[3] : 
+  st.title("test list déroulante")
 
 #   col1, col2, col3 = st.columns([1, 1, 1])  
 
@@ -118,13 +356,35 @@ if page == pages[2] :
 #palette de couleur
   color_pal12 = ['#92A8D1', '#034F84', '#F7CAC9', '#F7786B', '#DEEAEE', '#B1CBBB', '#EEA29A','#F0DA86', '#53B8B2', '#BEB9DB', '#FDCCE5', '#BD7EBE']
 
+# Sélection des variables à afficher avec une liste déroulante
+#  selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns, default=cat_columns)
+
+# Sélection des variables à afficher avec une liste déroulante, 'job' est sélectionné par défaut
+  selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns, default=['job'])
+
+
+# Calcul du nombre de lignes et de colonnes nécessaires pour les sous-graphiques
+  num_cols = 3
+  num_rows = (len(selected_columns) + num_cols - 1) // num_cols  # arrondir au nombre entier supérieur
+
 # Création des sous-graphiques
-  fig = make_subplots(rows=3, cols=3, subplot_titles=cat_columns)
+  fig = make_subplots(rows=num_rows, cols=num_cols, subplot_titles=selected_columns)
+
+# Création des sous-graphiques
+#  fig = make_subplots(rows=3, cols=3, subplot_titles=selected_columns)
+
+  # Création des sous-graphiques
+  if len(selected_columns) == 1:
+    fig = make_subplots(rows=2, cols=1, subplot_titles=selected_columns)
+  else:
+    fig = make_subplots(rows=num_rows, cols=num_cols, subplot_titles=selected_columns)
 
   counter = 0
-  for cat_column in cat_columns:
+  for cat_column in selected_columns:
     value_counts = df[cat_column].value_counts()
     x_pos = np.arange(0, len(value_counts))
+
+
     # Mélanger les couleurs de la palette de manière aléatoire
     random_colors = color_pal12.copy()
     random.shuffle(random_colors)
@@ -135,88 +395,34 @@ if page == pages[2] :
     # Appliquer les couleurs de la palette aux barres de la catégorie
     #colors = [color_pal12[i % len(color_pal12)] for i in range(len(value_counts))]
 
-    trace_x = counter // 3 + 1
-    trace_y = counter % 3 + 1
+    trace_x = counter // num_cols + 1
+    trace_y = counter % num_cols + 1
 
     # Ajout de la barre
-    fig.add_trace(go.Bar(x=x_pos,y=value_counts.values,text=value_counts.values,textposition='auto',hoverinfo='text+x',name=cat_column,marker_color=colors,opacity=0.6,marker_line_width=2,showlegend=False,),row=trace_x,col=trace_y)
-    # Mise en forme de l'axe x
-    fig.update_xaxes(tickvals=x_pos,ticktext=value_counts.index,row=trace_x,col=trace_y)
+    fig.add_trace(go.Bar(
+        x=x_pos,
+        y=value_counts.values,
+        text=value_counts.values,
+        textposition='auto',
+        hoverinfo='text+x',
+        name=cat_column,
+        marker_color=colors,
+        opacity=0.6,
+        marker_line_width=2,
+        showlegend=False,), row=trace_x, col=trace_y)
+
+
+  # Mise en forme de l'axe x
+    fig.update_xaxes(tickvals=x_pos, ticktext=value_counts.index, row=trace_x, col=trace_y)
+        
     # Rotation des étiquettes de l'axe x
     fig.update_xaxes(tickangle=45, row=trace_x, col=trace_y)
     counter += 1
 
 # Mise à jour de la mise en page du graphique
     fig.update_layout(height=800,width=1000,title_text="Distribution des modalités des variables catégorielles",)
+
+
 # Affichage du graphique
   st.plotly_chart(fig)
-#   st.write("")
-#   fig = plt.figure()
-#   sns.countplot(x = 'deposit', data = df)
-#   st.pyplot(fig)
 
-##FIGURE 2
-# Variables numériques à afficher
-#   num_columns = ['balance', 'campaign', 'pdays', 'previous']
-# # Création des sous-graphiques
-#   fig2 = make_subplots(rows=2, cols=2, subplot_titles=num_columns)
-# # Position du subplot
-#   row = 1
-#   col = 1
-# # Création des boxplots pour chaque variable numérique
-#   for num_column in num_columns:
-#     fig2.add_trace(
-#         go.Violin(
-#             x=df[num_column],
-#             marker_color='#B1CBBB',  # Couleur des points
-#             box_visible=True,  # Afficher la boîte à l'intérieur du violon
-#             meanline_visible=True, # Afficher la moyenne
-#             name=num_column,
-#             showlegend=False  # Supprimer les étiquettes de légende
-#         ),
-#         row=row,
-#         col=col
-#     )
-#     fig2.update_yaxes(title_text=num_column, row=row, col=col)
-#     col += 1
-#     if col > 2:
-#         row += 1
-#         col = 1
-# # Mise à jour de la mise en page du graphique
-#   fig2.update_layout(
-#     height=800,
-#     width=1000,
-#     title_text="Les variables numériques avec les valeurs extrêmes"
-# )
-# Affichage du graphique
-# fig.show()
-  # st.plotly_chart(fig)
-
-
-
-
-
-# PAGE 03 # Edition de la page "Préparation des données"
-if page == pages[3] : 
-  st.title("Prédiction du succès d’une campagne de Marketing d’une banque")
-  st.subheader("Doublons et valeurs manquantes")
-  st.write("Il n'y a pas de doublons dans l'ensemble des données (_df.duplicated().sum()_)")
-  st.code(df.duplicated().sum())
-  st.write("Il n'y a pas de valeurs manquantes dans l'ensemble des données (_df.isna().sum()_)")
-  st.code(df.isna().sum())
-
-# PAGE 04 # Edition de la page "Modélisation"
-if page == pages[4] : 
-  st.write()
-
-# PAGE 05 # Edition de la page "Machine Learning"
-if page == pages[5] : 
-  st.write()
-
-# PAGE 06 # Edition de la page "Conclusion et Perspective"
-if page == pages[6] : 
-  st.write()
-
-# PAGE 07 # Edition de la page "test"
-# if page == pages[7] : 
-#   st.write()
