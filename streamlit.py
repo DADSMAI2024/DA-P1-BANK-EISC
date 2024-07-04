@@ -351,78 +351,78 @@ if page == pages[3] :
 # if button1:
 
 # Catégories à afficher
-  cat_columns = ['job', 'marital', 'education', 'default', 'housing', 'loan', 'contact', 'month', 'poutcome']
+#   cat_columns = ['job', 'marital', 'education', 'default', 'housing', 'loan', 'contact', 'month', 'poutcome']
 
-#palette de couleur
-  color_pal12 = ['#92A8D1', '#034F84', '#F7CAC9', '#F7786B', '#DEEAEE', '#B1CBBB', '#EEA29A','#F0DA86', '#53B8B2', '#BEB9DB', '#FDCCE5', '#BD7EBE']
+# #palette de couleur
+#   color_pal12 = ['#92A8D1', '#034F84', '#F7CAC9', '#F7786B', '#DEEAEE', '#B1CBBB', '#EEA29A','#F0DA86', '#53B8B2', '#BEB9DB', '#FDCCE5', '#BD7EBE']
 
-# Sélection des variables à afficher avec une liste déroulante
- selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns, default=cat_columns)
+# # Sélection des variables à afficher avec une liste déroulante
+#  selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns, default=cat_columns)
 
-# Sélection des variables à afficher avec une liste déroulante, 'job' est sélectionné par défaut
-  # selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns)
-
-
-# Calcul du nombre de lignes et de colonnes nécessaires pour les sous-graphiques
-  num_cols = 3
-  num_rows = (len(selected_columns) + num_cols - 1) // num_cols  # arrondir au nombre entier supérieur
-
-# Création des sous-graphiques
-  fig = make_subplots(rows=num_rows, cols=num_cols, subplot_titles=selected_columns)
-
-# Création des sous-graphiques
-#  fig = make_subplots(rows=3, cols=3, subplot_titles=selected_columns)
-
-  # Création des sous-graphiques
-  if len(selected_columns) == 1:
-    fig = make_subplots(rows=2, cols=1, subplot_titles=selected_columns)
-  else:
-    fig = make_subplots(rows=num_rows, cols=num_cols, subplot_titles=selected_columns)
-
-  counter = 0
-  for cat_column in selected_columns:
-    value_counts = df[cat_column].value_counts()
-    x_pos = np.arange(0, len(value_counts))
+# # Sélection des variables à afficher avec une liste déroulante, 'job' est sélectionné par défaut
+#   # selected_columns = st.multiselect('Sélectionnez les variables à afficher', cat_columns)
 
 
-    # Mélanger les couleurs de la palette de manière aléatoire
-    random_colors = color_pal12.copy()
-    random.shuffle(random_colors)
-    # Appliquer les couleurs mélangées aux barres de la catégorie
-    colors = [random_colors[i % len(random_colors)] for i in range(len(value_counts))]
+# # Calcul du nombre de lignes et de colonnes nécessaires pour les sous-graphiques
+#   num_cols = 3
+#   num_rows = (len(selected_columns) + num_cols - 1) // num_cols  # arrondir au nombre entier supérieur
 
-    #SANS RANDOM
-    # Appliquer les couleurs de la palette aux barres de la catégorie
-    #colors = [color_pal12[i % len(color_pal12)] for i in range(len(value_counts))]
+# # Création des sous-graphiques
+#   fig = make_subplots(rows=num_rows, cols=num_cols, subplot_titles=selected_columns)
 
-    trace_x = counter // num_cols + 1
-    trace_y = counter % num_cols + 1
+# # Création des sous-graphiques
+# #  fig = make_subplots(rows=3, cols=3, subplot_titles=selected_columns)
 
-    # Ajout de la barre
-    fig.add_trace(go.Bar(
-        x=x_pos,
-        y=value_counts.values,
-        text=value_counts.values,
-        textposition='auto',
-        hoverinfo='text+x',
-        name=cat_column,
-        marker_color=colors,
-        opacity=0.6,
-        marker_line_width=2,
-        showlegend=False,), row=trace_x, col=trace_y)
+#   # Création des sous-graphiques
+#   if len(selected_columns) == 1:
+#     fig = make_subplots(rows=2, cols=1, subplot_titles=selected_columns)
+#   else:
+#     fig = make_subplots(rows=num_rows, cols=num_cols, subplot_titles=selected_columns)
+
+#   counter = 0
+#   for cat_column in selected_columns:
+#     value_counts = df[cat_column].value_counts()
+#     x_pos = np.arange(0, len(value_counts))
 
 
-  # Mise en forme de l'axe x
-    fig.update_xaxes(tickvals=x_pos, ticktext=value_counts.index, row=trace_x, col=trace_y)
+#     # Mélanger les couleurs de la palette de manière aléatoire
+#     random_colors = color_pal12.copy()
+#     random.shuffle(random_colors)
+#     # Appliquer les couleurs mélangées aux barres de la catégorie
+#     colors = [random_colors[i % len(random_colors)] for i in range(len(value_counts))]
+
+#     #SANS RANDOM
+#     # Appliquer les couleurs de la palette aux barres de la catégorie
+#     #colors = [color_pal12[i % len(color_pal12)] for i in range(len(value_counts))]
+
+#     trace_x = counter // num_cols + 1
+#     trace_y = counter % num_cols + 1
+
+#     # Ajout de la barre
+#     fig.add_trace(go.Bar(
+#         x=x_pos,
+#         y=value_counts.values,
+#         text=value_counts.values,
+#         textposition='auto',
+#         hoverinfo='text+x',
+#         name=cat_column,
+#         marker_color=colors,
+#         opacity=0.6,
+#         marker_line_width=2,
+#         showlegend=False,), row=trace_x, col=trace_y)
+
+
+#   # Mise en forme de l'axe x
+#     fig.update_xaxes(tickvals=x_pos, ticktext=value_counts.index, row=trace_x, col=trace_y)
         
-    # Rotation des étiquettes de l'axe x
-    fig.update_xaxes(tickangle=45, row=trace_x, col=trace_y)
-    counter += 1
+#     # Rotation des étiquettes de l'axe x
+#     fig.update_xaxes(tickangle=45, row=trace_x, col=trace_y)
+#     counter += 1
 
-# Mise à jour de la mise en page du graphique
-    fig.update_layout(height=800,width=1000,title_text="Distribution des modalités des variables catégorielles",)
+# # Mise à jour de la mise en page du graphique
+#     fig.update_layout(height=800,width=1000,title_text="Distribution des modalités des variables catégorielles",)
 
 
-# Affichage du graphique
-  st.plotly_chart(fig)
+# # Affichage du graphique
+#   st.plotly_chart(fig)
 
