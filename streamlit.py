@@ -1132,3 +1132,44 @@ if page == pages[3] :
         image_url3 = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/XtrainXtest_après.jpg"
         # Centrer l'image avec du HTML/CSS
         st.image(image_url3)    
+
+
+
+
+
+if page == pages[4] : 
+    st.title("Machine Learning")
+
+    st.markdown("Parmi les 11 algorithmes de classification testés et en fonction des scores obtenus (Accuracy, Precision, Recall et F1 Score) voici le résultat des 3 modèles qui performent le mieux")
+    model_choisi = st.selectbox(label = "Choix du modèle", options = ['Random Forest', 'XGBoost', 'LightGBM']) 
+
+    if model_choisi == "Random Forest":
+        st.image = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/RandomForest_Results.png"
+      
+        st.subheader("Constat :") 
+        st.markdown("""
+        - Le modèle a correctement prédit 656 instances positives (vrais positifs) et 1010 instances négatives (vrais négatifs).
+        - Mais il a aussi prédit 156 faux-positifs et 411 faux négatifs.""")
+    st.markdown("\n")
+
+
+    if model_choisi == "XGBoost":
+        st.image = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/XGBoost_Results.png"
+
+        st.subheader("Constat :") 
+        st.markdown("""
+        - Le modèle a correctement prédit 647 instances positives (vrais positifs) et 1027 instances négatives (vrais négatifs).
+        - Mais il a aussi prédit 139 faux-positifs et 420 faux négatifs.""")
+    st.markdown("\n")
+
+
+    if model_choisi == "LightGBM":
+        st.image = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/LightGBM_Results.png"
+
+        st.subheader("Constat :") 
+        st.markdown("""
+        - Le modèle a correctement prédit 646 instances positives (vrais positifs) et 1023 instances négatives (vrais négatifs).
+        - Mais il a aussi prédit 143 faux-positifs et 421 faux négatifs.""")
+    st.markdown("\n")
+    
+        
