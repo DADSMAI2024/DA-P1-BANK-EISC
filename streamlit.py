@@ -1041,33 +1041,94 @@ if page == pages[2] :
 
 
 
-
-
-
-
-
-# PAGE 02 # Edition de la page "Liste déroulante"
 if page == pages[3] : 
     st.title("Pre-processing des données")
 
     image_url = "https://www.lebigdata.fr/wp-content/uploads/2016/08/data-mining-1.jpg.webp"
     # Afficher l'image
     st.image(image_url)
+    st.markdown("\n")
+    st.markdown("""Avant de pouvoir appliquer les techniques d'apprentissage automatique, nous 
+    devons préparer l'ensemble des données. En sachant que nous n'avons pas de 
+    valeurs manquantes ou d'anomalies à traiter, nous allons procéder aux étapes suivantes :""")
 
-
+    st.subheader("Pré-traitement :") 
     st.markdown("""
-        1. **Discrétiser** la variable **'age'** par tranches d'âge pour **atténuer le rôle des valeurs extrêmes**.
-        2. **Remplacer la modalité 'unknown'** de la variable **'education'** par la modalité la plus **fréquente**.
-        3. **Encoder cycliquement** les variables catégorielles cycliques **('month', 'day')**
-        4. **Séparer le jeu de données en deux DataFrames** : variable cible et variables explicatives.
-        5. **Séparer le jeu de données en un jeu d'entraînement** (X_train,y_train) et un jeu de test (X_test, y_test) de sorte que la partie de test contient **25%** du jeu de données initial.
-        6. **Standardiser** les variables numériques **('balance', 'duration', 'campaign', 'previous')** à l'aide de RobustScaler en estimant les paramètres sur le jeu d'entraînement et en l'appliquant sur le jeu d'entraînement et de test.
-        7. **Encoder** les modalités de la variable cible **‘deposit’** à l'aide d'un **LabelEncoder** en estimant l'encodage sur le jeu d'entraînement et en l'appliquant sur le jeu d'entraînement et de test.
-        8. **Encoder** les modalités des variables explicatives **('default', 'housing', 'loan')** à l'aide d'un **LabelEncoder** en estimant l'encodage sur le jeu d'entraînement et en l'appliquant sur le jeu d'entraînement et de test.
-        9. **Encoder** les modalités des variables explicatives **('job', 'marital', 'contact', 'poutcome')** à l'aide d'un **OneHotEncoder** en estimant l'encodage sur le jeu d'entraînement et en l'appliquant sur le jeu d'entraînement et de test.
-        10. **Encoder** les modalités des variables explicatives **('age', 'education')** à l'aide d'un **OrdinalEncoder** en estimant l'encodage sur le jeu d'entraînement et en l'appliquant sur le jeu d'entraînement et de test.""")
+        - **Discrétiser** la variable **'age'** par tranches d'âge pour **atténuer le rôle des valeurs extrêmes**.
+        - **Remplacer** la modalité **'unknown'** de la variable **'education'** par la modalité la plus **fréquente**.
+        - **Diviser** la variable **'pdays'** (nombre de jours depuis le dernier contact - sachant 
+            que pdays=-1 équivaut à previous = 0, c’est à dire pas de contact précédant cette 
+            campagne) en 2 variables distinctes : **pdays_contact** (valeur no pour les 
+            valeurs -1 de pdays, et valeur yes pour les autres valeurs) et la variable 
+            **pdays_days** (valeur 0 pour les valeurs -1 de pdays et valeurs de pdays)""")
+    st.markdown("\n")
+    st.subheader("Séparation des jeux :") 
+    st.markdown("""
+        - **Séparer** les variables explicatives de la cible en deux DataFrames.
+        - **Séparer** le jeu de données en un jeu d'entraînement (X_train,y_train) et un jeu de test (X_test, y_test) de sorte que la partie de test contient **25%** du jeu de données initial.""")
+
+    # URL directe de l'image
+    image_url = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/preprocessing_train_test.jpg"
+    # Centrer l'image avec du HTML/CSS
+    st.markdown(
+        f"""
+        <style>
+        .center {{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }}
+        </style>
+        <img src="{image_url}" class="center">
+        """,
+        unsafe_allow_html=True
+    )
+    st.markdown("\n")
+    st.markdown("\n")
+    st.markdown("\n")
+    st.subheader("Standardisation et encodages :") 
+    st.markdown("""            
+        - **LabelEncoder** de la variable cible ‘deposit’.
+        - **Encodage cyclique** des variables temporelles ('month', 'day').
+        - **RobustScaler** sur les variables numériques ('balance', 'duration', 'campaign','previous', ‘pdays_days’).
+        - **LabelEncoder** des modalités des variables explicatives ('default', 'housing', loan').
+        - **OneHotEncoder** des modalités des variables explicatives ('job', 'marital', 'contact', 'poutcome', ‘pdays_contact’).
+        - **OrdinalEncoder** des modalités des variables explicatives ('age', 'education').    
+                """)
     st.write("")
-    st.markdown("""Nous avons également testé le prétraitement des données en **pipeline**""")
-            # Avant de pouvoir appliquer les techniques d'apprentissage automatique, nous devons préparer l'ensemble des données. En sachant que nous n'avons pas de valeurs manquantes ou d'anomalies à traiter, nous allons :
+    st.markdown("\n")
+    st.subheader("Pré-traitement des données en pipeline") 
+    st.markdown("Grâce à une **pipeline**, nous avons pu générer rapidement 4 pre-processing différents, testés ensuite sur différents algorithmes de Machine Learning :")
+    st.markdown("""            
+        - **Un pre-processing 1** sans le feature engineering de p_days, avec l'âge discrétisé, et un encodage Robust Scaler.
+        - **Un pre-processing 2** avec la division de pdays en 2 variables (pdays_contact et pdays_days), âge discrétisé, Robust Scaler sur les variables numériques.
+        - **Un pre-processing 3** équivalent au précédant mais avec un Standard Scaler sur les variables numériques.
+        - **Un pre-processing 4** avec l'âge sans discrétisation et Standard scaler sur les variables numériques.
+    """) 
+    st.markdown("\n")
+
+    if st.checkbox("Afficher nos choix de pre-processing sous forme de df") :
+        st.dataframe(pd.DataFrame({"Pre-processing":["1","2","3","4"],"Description":["sans le feature engineering de p_days, avec l'âge discrétisé, et un encodage Robust Scaler.","avec la division de pdays en pdays_contact et pdays_days, âge discrétisé, Robust Scaler","avec la division de pdays en pdays_contact et pdays_days, âge discrétisé, Standard Scaler","avec l'âge sans discrétisation et Standard scaler"]}))
+      
 
 
+    # URL directe de l'image
+    image_url4 = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/pipeline.jpg"
+    # Centrer l'image avec du HTML/CSS
+    st.image(image_url4)
+
+    st.markdown("Les résultats des modèles se sont avérés plus performants sur la base du **pre-processing 2**. C'est celui-ci qui a été retenu pour la suite du processus.")
+
+    # Checkbox pour afficher le contenu
+    if st.checkbox("**Afficher X_train et X_test avant le pre-processing**"):
+        # URL directe de l'image
+        image_url2 = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/XtrainXtest_avant.jpg"
+        # Centrer l'image avec du HTML/CSS
+        st.image(image_url2)
+
+
+    if st.checkbox("**Afficher X_train et X_test après le pre-processing**"):
+        # URL directe de l'image
+        image_url3 = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/XtrainXtest_après.jpg"
+        # Centrer l'image avec du HTML/CSS
+        st.image(image_url3)    
