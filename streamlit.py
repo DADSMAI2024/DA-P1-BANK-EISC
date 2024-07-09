@@ -35,7 +35,7 @@ st.sidebar.title("Sommaire")
 
 
 # PAGE 0 # Sommaire"
-pages=["Le projet","Le jeu de données", "Visualisations", "Préparation des données", "Modélisation", "Machine Learning", "Conclusion et Perspective"]
+pages=["Le projet","Le jeu de données", "Visualisations", "Préparation des données", "Machine Learning", "Conclusion et Perspective"]
 page=st.sidebar.radio("Aller vers", pages)
 with st.sidebar:
     st.title("Auteurs")
