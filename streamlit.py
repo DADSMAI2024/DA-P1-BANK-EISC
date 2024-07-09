@@ -767,8 +767,7 @@ if page == pages[2] :
 
     #analyse-des-contacts
 
-    st.markdown("<h2 id='analyse-des-contacts'>Analyse des contacts clients durant la campagne télémarketing</h2>", unsafe_allow_html=True)
-    st.markdown("<h2 id='le-profil-bancaire'>Le Profil Bancaire</h2>", unsafe_allow_html=True)    
+    st.markdown("<h2 id='analyse-des-contacts'>Analyse des contacts clients durant la campagne télémarketing</h2>", unsafe_allow_html=True) 
     #GRAPHIQUE CONTACT
     # Calculer les décomptes pour chaque catégorie de contact et deposit
     counts_contact = df.groupby(['contact', 'deposit']).size().unstack(fill_value=0)
