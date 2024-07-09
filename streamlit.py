@@ -1177,10 +1177,7 @@ if page == pages[4] :
 
 
 
-
-
-
-  if page == pages[5] : 
+if page == pages[5] : 
     st.title("Conclusion et Perspective")
 
     st.markdown("""
@@ -1204,7 +1201,7 @@ if page == pages[4] :
     st.markdown("\n")
 
     st.subheader("Profil client à cibler en priorité") 
-    image_PersonaCible = "https://github.com/DADSMAI2024/DA-P1-BANK-EISC/blob/2530c4748dde8a67f02f4ce8da93863a73f08538/img/LightGBM_Results.png"
+    image_PersonaCible = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/Persona Cible.png"
     st.image(image_PersonaCible)
 
     st.subheader("Stratégie et optimisation continue") 
