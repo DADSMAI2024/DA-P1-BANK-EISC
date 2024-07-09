@@ -1144,7 +1144,8 @@ if page == pages[4] :
     model_choisi = st.selectbox(label = "Choix du modèle", options = ['Random Forest', 'XGBoost', 'LightGBM']) 
 
     if model_choisi == "Random Forest":
-        st.image = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/RandomForest_Results.png"
+        image_RandomForest = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/RandomForest_Results.png"
+        st.image(image_RandomForest) 
       
         st.subheader("Constat :") 
         st.markdown("""
@@ -1154,7 +1155,8 @@ if page == pages[4] :
 
 
     if model_choisi == "XGBoost":
-        st.image = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/XGBoost_Results.png"
+        image_XGBoost = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/XGBoost_Results.png"
+        st.image(image_XGBoost) 
 
         st.subheader("Constat :") 
         st.markdown("""
@@ -1164,7 +1166,8 @@ if page == pages[4] :
 
 
     if model_choisi == "LightGBM":
-        st.image = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/LightGBM_Results.png"
+        image_LightGBM = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/LightGBM_Results.png"
+        st.image(image_LightGBM)
 
         st.subheader("Constat :") 
         st.markdown("""
