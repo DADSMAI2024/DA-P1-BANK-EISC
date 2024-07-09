@@ -112,7 +112,7 @@ if page == pages[2] :
   button1 = col1.button("La variable cible : deposit")
   button2 = col2.button("Les variables catégorielles")
   button3 = col3.button("Les variables numériques")
-  button4 = col4.button("Var. explicatives VS cible")
+  button4 = col4.button("Var. explicatives VS la variable cible")
 
   if button1:
 
