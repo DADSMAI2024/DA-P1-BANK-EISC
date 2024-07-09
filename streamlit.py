@@ -45,6 +45,7 @@ with st.sidebar:
     "[Cédric Le Stunff](https://www.linkedin.com/in/cedric-le-stunff-profile/)"
     st.markdown("\n")
     st.markdown("\n")
+    st.title("Lien")
     "[NoteBook](https://colab.research.google.com/drive/1eY6XSFy2pTywJwGjXQacfjSf8dD_PNqB?usp=sharing)"
 
 
