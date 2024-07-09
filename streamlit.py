@@ -35,7 +35,7 @@ st.sidebar.title("Sommaire")
 
 
 # PAGE 0 # Sommaire"
-pages=["Le projet","Le jeu de données", "Visualisations", "Préparation des données", "Machine Learning", "Conclusion et Perspective"]
+pages=["Le projet","Le jeu de données", "Visualisations", "Pre-processing des données", "Machine Learning", "Conclusion et Perspective"]
 page=st.sidebar.radio("Aller vers", pages)
 with st.sidebar:
     st.title("Auteurs")
@@ -343,7 +343,7 @@ if page == pages[2] :
 
 # PAGE 02 # Edition de la page "Liste déroulante"
 if page == pages[3] : 
-    st.title("Préparation des données")
+    st.title("Pre-processing des données")
 
     image_url = "https://www.lebigdata.fr/wp-content/uploads/2016/08/data-mining-1.jpg.webp"
     # Afficher l'image
