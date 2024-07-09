@@ -1189,7 +1189,7 @@ if page == pages[5] :
     En prenant en compte la durée de l’appel, les modèles sont très performants. 
     Néanmoins, il est à privilégier un modèle un peu moins performant mais sans aucun doute plus prédictif du potentiel client souscripteur (sans la donnée de durée d’appel). 
 
-    Nous recommandons ainsi d’utiliser les modèles de ML optimisés, tels que XGBoost ou LightGBM, pour prédire les clients susceptibles de souscrire à ce type de produit bancaire ‘dépôt à terme’. L’un ou l’autre permettra une prédiction correcte en moyenne de 74% à 75% des clients susceptibles de souscrire au produit.""")
+    Nous recommandons ainsi d’utiliser les modèles de ML optimisés, tels que **XGBoost** ou **LightGBM**, pour prédire les clients susceptibles de souscrire à ce type de produit bancaire ‘dépôt à terme’. L’un ou l’autre permettra une prédiction correcte en moyenne de 74% à 75% des clients susceptibles de souscrire au produit.""")
 
 
     st.subheader("Recommandations pour améliorer les modèles prédictifs") 
@@ -1215,10 +1215,10 @@ if page == pages[5] :
         """,
         unsafe_allow_html=True
     )
-
+    st.markdown("\n")
     st.subheader("Stratégie et optimisation continue") 
     st.markdown("""
-    Nous recommandons donc l’utilisation d’un modèle prédictif de type LightGBM ou XGBoost selon les contraintes d’infrastructure et de données pour la prochaine campagne. 
+    Nous recommandons donc l’utilisation d’un modèle prédictif de type **LightGBM** ou **XGBoost** selon les contraintes d’infrastructure et de données pour la prochaine campagne. 
     Il permettra de cibler une bonne part de clients susceptibles de souscrire. 
     Les résultats de la prochaine campagne permettront alors d’alimenter le système prédictif mis en place et de l’optimiser dans un processus continu. 
 
