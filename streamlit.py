@@ -1202,7 +1202,19 @@ if page == pages[5] :
 
     st.subheader("Profil client à cibler en priorité") 
     image_PersonaCible = "https://raw.githubusercontent.com/DADSMAI2024/DA-P1-BANK-EISC/main/img/Persona Cible.png"
-    st.image(image_PersonaCible)
+    st.markdown(
+        f"""
+        <style>
+        .center {{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }}
+        </style>
+        <img src="{image_PersonaCible}" class="center">
+        """,
+        unsafe_allow_html=True
+    )
 
     st.subheader("Stratégie et optimisation continue") 
     st.markdown("""
