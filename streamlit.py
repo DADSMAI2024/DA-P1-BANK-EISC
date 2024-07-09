@@ -43,6 +43,9 @@ with st.sidebar:
     "[Irina Grankina](https://www.linkedin.com/in/irinagrankina/)"
     "[Samantha Ebrard](https://www.linkedin.com/in/samanthaebrard/)"
     "[Cédric Le Stunff](https://www.linkedin.com/in/cedric-le-stunff-profile/)"
+    st.markdown("\n")
+    st.markdown("\n")
+    "[NoteBook](https://colab.research.google.com/drive/1eY6XSFy2pTywJwGjXQacfjSf8dD_PNqB?usp=sharing)"
 
 
 # PAGE 0 # Edition de la page "Le projet"
