@@ -361,7 +361,7 @@ if page == pages[2] :
     - [Le profil client](#le-profil-client)
     - [Le profil bancaire](#le-profil-bancaire)
     - [Analyse des contacts clients durant la campagne télémarketing](#analyse-des-contacts)
-    - [Analyse de la campagne précédente et son influence sur la campagne actuelle](#analyse-de-la-campagne-precedente)
+    # - [Analyse de la campagne précédente et son influence sur la campagne actuelle](#analyse-de-la-campagne-precedente)
     ''', unsafe_allow_html=True)
     
     st.markdown("\n")
