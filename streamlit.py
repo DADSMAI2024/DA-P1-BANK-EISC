@@ -357,8 +357,11 @@ if page == pages[2] :
     st.markdown("Notre analyse se décompose en 4 grands axes :")
  
     # Création des liens vers les paragraphes
-    st.header("Le profil client")
+    # st.header("Le profil client")
     st.markdown("[Le profil client](#le-profil-client)")
+    st.markdown("[Le profil bancaire](#le-profil-bancaire)")
+    st.markdown("[Analyse des contacts clients durant la campagne télémarketing](#analyse-des-contacts)")
+    st.markdown("[Analyse de la campagne précédente et son influence sur la campagne actuelle](#analyse-de-la-campagne-precedente)")
 
 
 
