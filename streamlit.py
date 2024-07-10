@@ -120,8 +120,12 @@ if page == pages[2] :
   button2 = col2.button("Les variables catégorielles")
   button3 = col3.button("Les variables numériques")
   button4 = col4.button("Var. explicatives VS la variable cible")
-  
-  if button1:
+
+  # Vérifiez si un bouton est cliqué
+  button_clicked = button1 or button2 or button3 or button4
+
+  #Définir button1 par défaut à l'ouverture de la page
+  if not button_clicked or button1:
     count_deposit = df['deposit'].value_counts()
     color_sequence = ['#FACA5E','#5242EA']
 
