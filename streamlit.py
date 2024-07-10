@@ -360,7 +360,7 @@ if page == pages[2] :
     st.markdown('''
     - [Le profil client](#le-profil-client)
     - [Le profil bancaire](#le-profil-bancaire)
-    - [Analyse des contacts clients durant la campagne télémarketing](#analyse-des-contacts)
+    - [Analyse des contacts clients](#analyse-des-contacts)
     - [Analyse de la campagne précédente et son influence sur la campagne actuelle](#analyse-de-la-campagne-precedente)
     ''', unsafe_allow_html=True)
     
@@ -778,7 +778,7 @@ if page == pages[2] :
     st.markdown("\n")
 
     #analyse-des-contacts
-    st.markdown("<h2 id='analyse-des-contacts'>Analyse des contacts clients durant la campagne télémarketing</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 id='analyse-des-contacts'>Analyse des contacts clients</h2>", unsafe_allow_html=True)
     # st.markdown("<h2 id='analyse-des-contacts'>Analyse des contacts clients durant la campagne télémarketing</h2>", unsafe_allow_html=True) 
     #GRAPHIQUE CONTACT
     # Calculer les décomptes pour chaque catégorie de contact et deposit
