@@ -361,7 +361,7 @@ if page == pages[2] :
     - [Le profil client](#le-profil-client)
     - [Le profil bancaire](#le-profil-bancaire)
     - [Analyse des contacts clients durant la campagne](#analyse-des-contacts-clients-durant-la-campagne)
-    - [Le profil bancaire3](#le-profil-bancaire3)
+    - [Analyse de la campagne précédente](#analyse-de-la-campagne-precedente)
     ''', unsafe_allow_html=True)
     
     st.markdown("\n")
@@ -930,7 +930,7 @@ if page == pages[2] :
     st.markdown("\n")
 
 
-    st.markdown("<h2 id='Le profil bancaire3'>le-profil-bancaire3</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 id='analyse-de-la-campagne-precedente'>Analyse de la campagne precedente</h2>", unsafe_allow_html=True)
     #GRAPHIQUE 1 CONTACT OR NO CONTACT
     # Diviser en deux groupes
     df['group'] = df['previous'].apply(lambda x: 'non contactés' if x == 0 else 'contactés')
