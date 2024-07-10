@@ -360,8 +360,8 @@ if page == pages[2] :
     st.markdown('''
     - [Le profil client](#le-profil-client)
     - [Le profil bancaire](#le-profil-bancaire)
-    - [Analyse des contacts clients](#analyse-des-contacts)
-    - [Analyse de la campagne précédente et son influence sur la campagne actuelle](#analyse-de-la-campagne-precedente)
+    - [Le profil bancaire2](#le-profil-bancaire2)
+    - [Le profil bancaire3](#le-profil-bancaire3)
     ''', unsafe_allow_html=True)
     
     st.markdown("\n")
@@ -778,7 +778,7 @@ if page == pages[2] :
     st.markdown("\n")
 
     #analyse-des-contacts
-    st.markdown("<h2 id='analyse-des-contacts'>Analyse des contacts clients</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 id='le-profil-bancaire2'>Le profil bancaire2</h2>", unsafe_allow_html=True)
     # st.markdown("<h2 id='analyse-des-contacts'>Analyse des contacts clients durant la campagne télémarketing</h2>", unsafe_allow_html=True) 
     #GRAPHIQUE CONTACT
     # Calculer les décomptes pour chaque catégorie de contact et deposit
@@ -930,7 +930,7 @@ if page == pages[2] :
     st.markdown("\n")
 
 
-    st.markdown("<h2 id='analyse-de-la-campagne-precedente'>Analyse de la campagne précédente et son influence sur la campagne actuelle</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 id='Le profil bancaire3'>le-profil-bancaire3</h2>", unsafe_allow_html=True)
     #GRAPHIQUE 1 CONTACT OR NO CONTACT
     # Diviser en deux groupes
     df['group'] = df['previous'].apply(lambda x: 'non contactés' if x == 0 else 'contactés')
