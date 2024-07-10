@@ -70,8 +70,7 @@ if page == pages[1] :
   st.write("")
 
   st.subheader("Origines du data set")
-  st.markdown("""Le jeu de données 'bank.csv' est basé sur le jeu de données UCI 'Bank Marketing' dont on peut lire la description ici : http://archive.ics.uci.edu/ml/datasets/Bank+Marketing).
-  Créateurs: S. Moro, P. Rita, P. Cortez.""")             
+  st.markdown("Le jeu de données 'bank.csv' est basé sur le jeu de données UCI 'Bank Marketing' dont on peut lire la description ici : http://archive.ics.uci.edu/ml/datasets/Bank+Marketing). Créateurs: S. Moro, P. Rita, P. Cortez.")             
  
   
   st.subheader("Les différentes variables")
