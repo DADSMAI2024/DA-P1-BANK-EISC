@@ -117,10 +117,10 @@ if page == pages[2] :
 
   col1, col2, col3,col4 = st.columns([1, 1, 1, 1])  
 
-  button1 = col1.button("La variable cible : deposit")
-  button2 = col2.button("Les variables catégorielles")
-  button3 = col3.button("Les variables numériques")
-  button4 = col4.button("Var. explicatives VS la variable cible")
+  button1 = col1.button("Variable cible Deposit")
+  button2 = col2.button("Variables Catégorielles")
+  button3 = col3.button("Variables Numériques")
+  button4 = col4.button("Variables Versus Cible")
 
   # Vérifiez si un bouton est cliqué
   button_clicked = button1 or button2 or button3 or button4
